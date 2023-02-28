@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 05:21:05 by mgamil            #+#    #+#             */
-/*   Updated: 2023/02/24 06:16:15 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/02/28 01:53:39 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void)
 
 	// std::cout << "a is " << a.toFloat() << " as floats" << std::endl;
 	// std::cout << "b is " << b.toFloat() << " as floats" << std::endl;
-	// std::cout << "c is " << c.toFloat() << " as floats" << std::endl;
+	std::cout << "c is " << c.toFloat() << " as floats" << std::endl;
 	// std::cout << "d is " << d.toFloat() << " as floats" << std::endl;
 
 	return (0);
