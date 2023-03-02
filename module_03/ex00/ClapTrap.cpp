@@ -12,10 +12,10 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( std::string name ): _hitPts(10), _nrgPts(10), _atkPts(2)
+ClapTrap::ClapTrap( std::string name ): _hitPts(10), _nrgPts(10), _atkPts(0), _name(name)
 {
 	std::cout << "Constructor called" << std::endl;
-	this->_name = name;
+
 	return ;
 }
 
@@ -60,16 +60,24 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	if (!_nrgPts)
+	{
+		std::cout << _name << " can't get repaired !" << std::endl;
+		return ;
+	}
 	std::cout << BLUE << _name << " wants to get repaired, of " << amount << " he has " << this->_hitPts << "." << std::endl;
 	if (_hitPts == 10)
 		std::cout << RED << _name << " is already at maximum!" << RESET << std::endl;
-	else if (amount + _hitPts >= 10)
-		std::cout << BRED << _name << " can only be repaired of " << (amount - 10) << "!" << RESET << std::endl;
+	else if (amount >= 10 && _hitPts < 10)
+		std::cout << BRED << _name << " can only be repaired of " << (10 - _hitPts) << "!" << RESET << std::endl;
+	else if (amount + _hitPts > 10)
+		std::cout << BRED << _name << " can have only a maximum of 10 hit points !!" << RESET << std::endl;
 	else
 	{
 		std::cout << _name << " is getting repaired of " << (amount) << "!" << std::endl;
 		_hitPts += amount;
 		std::cout << _name << " is now at " << (_hitPts) << "!" << RESET << std::endl;
+		_nrgPts -= 1;
 	}
 }
 

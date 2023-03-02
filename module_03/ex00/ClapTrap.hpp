@@ -33,7 +33,7 @@ class ClapTrap
 	~ClapTrap();
 	unsigned int	getHitPts( void ) const;
 	unsigned int	getAtkDmg( void ) const;
-	std::string		getName() const;
+	std::string		getName( void ) const;
 	void			attack(const std::string &target);
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);

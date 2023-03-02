@@ -6,7 +6,7 @@
 #    By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 20:50:12 by momadani          #+#    #+#              #
-#    Updated: 2023/02/24 06:32:07 by mgamil           ###   ########.fr        #
+#    Updated: 2023/03/01 20:36:07 by mgamil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ RESET					=	\e[0m
 NAME					:=	Fix
 
 override FILES			:=	$(addsuffix .cpp,			\
-							main Fixed )
+							main Fixed Point )
 
 SRCDIR					:=	./
 INCDIR					:=	./
