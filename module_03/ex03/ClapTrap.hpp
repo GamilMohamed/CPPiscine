@@ -12,31 +12,26 @@
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
-
+# include "Colors.hpp"
 # include <iostream>
-# include "Colors.hpp"0
 
 class ClapTrap
 {
-  private:
-	// static const unsigned int	_hitPts = 10;
-	// static const unsigned int	_nrgPts = 10;
-	// static const unsigned int	_atkPts = 0;
-	unsigned int	_hitPts;
-	unsigned int	_nrgPts;
-	unsigned int	_atkPts;
-	std::string		_name;
-
+  protected:
+	unsigned int _hitPts;
+	unsigned int _nrgPts;
+	unsigned int _atkPts;
+	std::string _name;
   public:
-	ClapTrap( std::string name );
+	ClapTrap(std::string name);
 	ClapTrap();
 	~ClapTrap();
-	unsigned int	getHitPts( void ) const;
-	unsigned int	getAtkDmg( void ) const;
-	std::string		getName( void ) const;
-	void			attack(const std::string &target);
-	void			takeDamage(unsigned int amount);
-	void			beRepaired(unsigned int amount);
+	unsigned int getHitPts(void) const;
+	unsigned int getAtkDmg(void) const;
+	std::string getName(void) const;
+	void attack(const std::string &target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 };
 
 #endif

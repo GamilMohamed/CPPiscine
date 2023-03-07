@@ -6,7 +6,7 @@
 #    By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 20:50:12 by momadani          #+#    #+#              #
-#    Updated: 2023/03/07 00:54:59 by mgamil           ###   ########.fr        #
+#    Updated: 2023/03/07 00:56:05 by mgamil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SHELL					:=	$(shell which zsh)
 ### A S C I I   A R T ##########################################################
 
 ART_NAME_1				=	█▀▀ █▀█ █▀█ █▀█ ▀█ ▄▄ █▀▀ ▀▄▀ █▀█ ▀█\n
-ART_NAME_2				=	█▄▄ █▀▀ █▀▀ █▄█ ▄█ ░░ ██▄ █░█ █▄█  █\n
+ART_NAME_2				=	█▄▄ █▀▀ █▀▀ █▄█ ▄█ ░░ ██▄ █░█ █▄█ ▄█\n
 
 ART_CLN1				=   █▀▀ █░░ █▀▀ ▄▀█ █▄░█\n
 ART_CLN2				=   █▄▄ █▄▄ ██▄ █▀█ █░▀█\n
@@ -61,10 +61,10 @@ RESET					=	\e[0m
 
 ### D I R E C T O R Y ' S ######################################################
 
-NAME					:=	Scav
+NAME					:=	Diamond
 
 override FILES			:=	$(addsuffix .cpp,			\
-							main ClapTrap ScavTrap )
+							main ClapTrap ScavTrap FragTrap DiamondTrap )
 
 SRCDIR					:=	./
 INCDIR					:=	./

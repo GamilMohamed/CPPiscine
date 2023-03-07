@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:58:35 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/07 01:44:26 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/03/07 01:56:16 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void  FragTrap::highFivesGuys( void )
 {
-   std::cout << "Give me a high five !" << std::endl;
+   std::cout << "Please give me a high five !" << std::endl;
 }
 
 FragTrap::FragTrap(void) : ClapTrap("FragTrap")
@@ -26,9 +26,17 @@ FragTrap::FragTrap(void) : ClapTrap("FragTrap")
    _name = "FragTrap";
 }
 
+void FragTrap::displayIdentity( void )
+{
+   std::cout << "Frag _name = " << _name << std::endl;
+   std::cout << "Frag _atkPts = " << _atkPts << std::endl;
+   std::cout << "Frag _hitPts = " << _hitPts << std::endl;
+   std::cout << "Frag _nrgPts = " << _nrgPts << std::endl;
+}
+
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-   std::cout << "New Fragtrap from Claptrap" << std::endl;
+   std::cout << "New ScavTrap from Claptrap" << std::endl;
    _hitPts = 100;
    _nrgPts = 100;
    _atkPts = 30;
