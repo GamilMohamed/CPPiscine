@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 01:23:30 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/10 23:19:32 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/11 00:49:55 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/11 00:50:42 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-# define DIAMONDTRAP_HPP
-# include "ClapTrap.hpp"
-# include "FragTrap.hpp"
-# include "ScavTrap.hpp"
+#include "Dog.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap
+Dog::Dog( void ) : Animal()
 {
-  private:
-	std::string name;
-  public:
-	DiamondTrap(DiamondTrap const &s);
-	DiamondTrap();
-	DiamondTrap(std::string name);
-	~DiamondTrap();
-	DiamondTrap &operator=(DiamondTrap const &s);
-	void whoAmI(void);
-};
+	std::cout << "Dog constructor called" << std::endl;
+	 _type = "Dog";
+}
 
-#endif
+
+Dog::~Dog( void )
+{
+	std::cout << "Dog destructor called" << std::endl;
+}
+
+Dog &Dog::operator=(Dog const &s)
+{
+	std::cout << "Copy assignement opeator called" << std::endl;
+	this->_type = s._type;
+	return (*this);
+}

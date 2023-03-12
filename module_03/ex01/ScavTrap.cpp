@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:55:48 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/06 02:07:02 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/03/07 21:05:16 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,18 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
    _nrgPts = 50;
    _atkPts = 20;
    _name = name;
+}
+
+
+void	ScavTrap::attack(const std::string &target)
+{
+	if (!_nrgPts || !_hitPts)
+	{
+		std::cout << "Scav " << _name << " can't attack !" << std::endl;
+		return ;
+	}
+	std::cout << RED << "Scav " << _name << " attacks " << target << " causing " << _atkPts << " points of damage!" << RESET << std::endl;
+	std::cout << GREEN << "Scav " << _name << " energy is at " << (_nrgPts -= 1) << "!" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &s)

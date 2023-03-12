@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 18:58:35 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/07 01:56:16 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/03/07 21:44:57 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,6 @@ FragTrap::FragTrap(void) : ClapTrap("FragTrap")
    _nrgPts = 100;
    _atkPts = 30;
    _name = "FragTrap";
-}
-
-void FragTrap::displayIdentity( void )
-{
-   std::cout << "Frag _name = " << _name << std::endl;
-   std::cout << "Frag _atkPts = " << _atkPts << std::endl;
-   std::cout << "Frag _hitPts = " << _hitPts << std::endl;
-   std::cout << "Frag _nrgPts = " << _nrgPts << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)

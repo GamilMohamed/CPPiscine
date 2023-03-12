@@ -14,7 +14,7 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# include "Colors.hpp"0
+# include "Colors.hpp"
 
 class ClapTrap
 {

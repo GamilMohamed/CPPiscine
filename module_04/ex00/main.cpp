@@ -5,22 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 05:21:05 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/07 21:44:31 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/08 00:25:10 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/11 00:51:28 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
+#include "Animals.hpp"
+# include "Cat.hpp"
+# include "Colors.hpp"
+# include "Dog.hpp"
 
 int	main(void)
 {
-	ScavTrap Maxou("Maxou");
-	FragTrap Mouss("Mouss");
-	DiamondTrap Retry("Retry");
-
-	Retry.attack("Maxou");
+	const Animal *meta = new Animal();
+	const Animal *j = new Dog();
+	const Animal *i = new Cat();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+	delete i;
+	delete j;
+	delete meta;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:55:48 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/07 01:49:33 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/03/07 21:45:11 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,15 @@ ScavTrap::ScavTrap(ScavTrap const &s)
    *this = s;
 }
 
-void ScavTrap::displayIdentity( void )
+void	ScavTrap::attack(const std::string &target)
 {
-   std::cout << "Scav _name = " << _name << std::endl;
-   std::cout << "Scav _atkPts = " << _atkPts << std::endl;
-   std::cout << "Scav _hitPts = " << _hitPts << std::endl;
-   std::cout << "Scav _nrgPts = " << _nrgPts << std::endl;
+	if (!_nrgPts || !_hitPts)
+	{
+		std::cout << "Scav " << _name << " can't attack !" << std::endl;
+		return ;
+	}
+	std::cout << RED << "Scav " << _name << " attacks " << target << " causing " << _atkPts << " points of damage!" << RESET << std::endl;
+	std::cout << GREEN << "Scav " << _name << " energy is at " << (_nrgPts -= 1) << "!" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap()

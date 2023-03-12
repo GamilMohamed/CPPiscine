@@ -14,21 +14,21 @@
 
 ClapTrap::ClapTrap( std::string name ): _hitPts(100), _nrgPts(50), _atkPts(20), _name(name)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Clap Constructor called" << std::endl;
 
 	return ;
 }
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << "Clap Default Constructor called" << std::endl;
 	this->_name = "Moha";
 	return ;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Clap Destructor called" << std::endl;
 	return ;
 }
 
