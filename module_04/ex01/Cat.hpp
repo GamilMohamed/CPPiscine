@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animals.cpp                                        :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 23:26:34 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/14 01:57:10 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/10 23:28:18 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/14 20:34:04 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animals.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-Animal::Animal()
+# include "Animals.hpp"
+# include "Brain.hpp"
+
+class Cat : public Animal
 {
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
+  private:
+	Brain*	_brain;
+  public:
+	Cat();
+	Cat &operator=(Cat const &s);
+	void makeSound() const;
+	Cat(const Cat &rhs);
+	~Cat();
+};
 
-Animal::~Animal()
-{
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
-
-void Animal::makeSound() const
-{
-	std::cout << "Animal is making sound !" << std::endl;
-}
-
-
-std::string Animal::getType( void ) const
-{
-	return (_type);
-}
+#endif

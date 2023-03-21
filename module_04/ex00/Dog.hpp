@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 23:28:18 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/11 00:50:24 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/03/14 01:57:31 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Dog : public Animal
   public:
 	Dog();
 	Dog &operator=(Dog const &s);
+	void makeSound() const;
 	~Dog();
 };
 

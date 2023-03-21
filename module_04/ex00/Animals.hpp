@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 00:26:18 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/10 23:53:02 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/03/14 01:58:36 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class Animal
 
   public:
 	Animal();
-	~Animal();
-	void makeSound() const;
+	virtual ~Animal();
+	virtual void makeSound() const;
 	std::string getType() const;
 };
 

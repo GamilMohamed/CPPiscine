@@ -6,7 +6,7 @@
 #    By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 20:50:12 by momadani          #+#    #+#              #
-#    Updated: 2023/03/14 20:10:32 by mgamil           ###   ########.fr        #
+#    Updated: 2023/03/14 20:39:56 by mgamil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,10 +61,10 @@ RESET					=	\e[0m
 
 ### D I R E C T O R Y ' S ######################################################
 
-NAME					:=	Animals
+NAME					:=	Brain
 
 override FILES			:=	$(addsuffix .cpp,			\
-							main Animals Cat Dog WrongAnimal WrongCat)
+							main Animals Cat Dog WrongAnimal WrongCat Brain)
 
 SRCDIR					:=	./
 INCDIR					:=	./

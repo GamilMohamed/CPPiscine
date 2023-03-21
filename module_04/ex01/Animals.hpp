@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animals.cpp                                        :+:      :+:    :+:   */
+/*   Animals.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 23:26:34 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/14 01:57:10 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/08 00:26:18 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/14 20:24:49 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animals.hpp"
+#ifndef ANIMALS_HPP
+# define ANIMALS_HPP
 
-Animal::Animal()
+# include <iostream>
+# include <string>
+
+class Animal
 {
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
+  protected:
+	std::string _type;
 
-Animal::~Animal()
-{
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
+  public:
+	Animal();
+	virtual ~Animal();
+	virtual void makeSound() const;
+	std::string getType() const;
+};
 
-void Animal::makeSound() const
-{
-	std::cout << "Animal is making sound !" << std::endl;
-}
-
-
-std::string Animal::getType( void ) const
-{
-	return (_type);
-}
+#endif

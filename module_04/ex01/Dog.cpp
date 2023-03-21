@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 00:26:18 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/14 01:57:52 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/11 00:49:55 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/14 20:44:19 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
+#include "Brain.hpp"
 
-Cat::Cat( void ) : Animal()
+Dog::Dog( void ) : Animal()
 {
-	std::cout << "Cat constructor called" << std::endl;
-	 _type = "Cat";
+	_brain = new Brain;
+	std::cout << "Dog constructor called" << std::endl;
+	 _type = "Dog";
 }
 
-Cat::~Cat( void )
+Dog::~Dog( void )
 {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
+	delete _brain;
 }
 
-Cat &Cat::operator=(Cat const &s)
+Dog &Dog::operator=(Dog const &s)
 {
 	std::cout << "Copy assignement opeator called" << std::endl;
 	this->_type = s._type;
 	return (*this);
 }
 
-void	Cat::makeSound( void ) const
+void	Dog::makeSound( void ) const
 {
-	std::cout << "Miaaaooowwww" << std::endl;
-} 
+	std::cout << "Waoof WOFFFFF" << std::endl;
+}
+
+Dog::Dog(const Dog &rhs)
+{
+	_type = rhs.getType(	);
+	std::cout << "Dog Copy constructor operator called" << std::endl;
+}

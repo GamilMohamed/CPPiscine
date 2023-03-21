@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animals.cpp                                        :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 23:26:34 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/14 01:57:10 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/13 23:05:54 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/14 02:00:33 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animals.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-Animal::Animal()
+# include "Animals.hpp"
+
+class WrongAnimal
 {
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
+  protected:
+	std::string _type;
+  public:
+	WrongAnimal();
+	~WrongAnimal();
+	WrongAnimal(WrongAnimal const &src);
+	WrongAnimal &operator=(WrongAnimal const &src);
+	std::string getType(void) const;
+	void makeSound(void) const;
+};
 
-Animal::~Animal()
-{
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
-
-void Animal::makeSound() const
-{
-	std::cout << "Animal is making sound !" << std::endl;
-}
-
-
-std::string Animal::getType( void ) const
-{
-	return (_type);
-}
+#endif

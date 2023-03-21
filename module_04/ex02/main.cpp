@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animals.cpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 23:26:34 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/14 01:57:10 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/08 00:25:10 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/14 20:56:03 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animals.hpp"
+#include "Cat.hpp"
+#include "Colors.hpp"
+#include "Dog.hpp"
+#include "Brain.hpp"
 
-Animal::Animal()
+int	main(void)
 {
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
-
-Animal::~Animal()
-{
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
-
-void Animal::makeSound() const
-{
-	std::cout << "Animal is making sound !" << std::endl;
-}
-
-
-std::string Animal::getType( void ) const
-{
-	return (_type);
+	// Animal chien = new Animal;
+	Animal* chien = new Dog;
+	delete chien;
+	return (0);
 }

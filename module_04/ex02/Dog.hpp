@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animals.cpp                                        :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 23:26:34 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/14 01:57:10 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/10 23:28:18 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/14 20:39:44 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animals.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-Animal::Animal()
+# include "Animals.hpp"
+# include "Brain.hpp"
+
+class Dog : public Animal
 {
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
+  private:
+	Brain*	_brain;
+  public:
+	Dog();
+	Dog &operator=(Dog const &s);
+	Dog(const Dog &rhs);
+	void makeSound() const;
+	~Dog();
+};
 
-Animal::~Animal()
-{
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
-
-void Animal::makeSound() const
-{
-	std::cout << "Animal is making sound !" << std::endl;
-}
-
-
-std::string Animal::getType( void ) const
-{
-	return (_type);
-}
+#endif

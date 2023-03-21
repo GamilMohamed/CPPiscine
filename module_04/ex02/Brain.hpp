@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animals.cpp                                        :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 23:26:34 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/14 01:57:10 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/14 20:11:15 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/14 20:43:00 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animals.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-Animal::Animal()
-{
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
+#include <iostream>
 
-Animal::~Animal()
-{
-	std::cout << "Animal" << " constructor called" << std::endl;
-}
+class Brain {
+	private:
+		std::string _ideas[100];
+	public:
+		Brain();
+		Brain &operator=(Brain const &s);
+		std::string getIdeas( int i ) const;
+		Brain(const Brain &rhs);
+		~Brain();
+};
 
-void Animal::makeSound() const
-{
-	std::cout << "Animal is making sound !" << std::endl;
-}
-
-
-std::string Animal::getType( void ) const
-{
-	return (_type);
-}
+#endif
