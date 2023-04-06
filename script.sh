@@ -20,3 +20,15 @@ make -C module_03/ex01 fclean
 make -C module_03/ex02 fclean
 make -C module_03/ex03 fclean
 
+make -C module_04/ex00 fclean
+make -C module_04/ex01 fclean
+make -C module_04/ex02 fclean
+make -C module_04/ex03 fclean
+
+make -C module_05/ex00 fclean
+make -C module_05/ex01 fclean
+make -C module_05/ex02 fclean
+make -C module_05/ex03 fclean
+
+
+
