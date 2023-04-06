@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 20:11:15 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/29 23:02:39 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/22 17:35:39 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/29 22:08:50 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef AMETERIA_HPP
+# define AMETERIA_HPP
 
+#include <string>
 #include <iostream>
+# include "ICharacter.hpp"
 
-class Brain {
-	private:
-		std::string _ideas[100];
+class ICharacter;
+
+class AMateria
+{
+	protected:
+		const std::string	_type;
 	public:
-		Brain();
-		Brain &operator=(Brain const &s);
-		std::string getIdeas( int i ) const;
-		Brain(const Brain &rhs);
-		~Brain();
+		AMateria(const std::string &type);
+		AMateria(const AMateria &copy);
+		virtual	~AMateria(void);
+		virtual AMateria	*clone(void) const = 0;
+		virtual void		use(ICharacter& target);
+		const std::string	&getType() const;
 };
 
 #endif

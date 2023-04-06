@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/14 20:11:15 by mgamil            #+#    #+#             */
-/*   Updated: 2023/03/29 23:02:39 by mgamil           ###   ########.fr       */
+/*   Created: 2023/03/29 22:06:28 by mgamil            #+#    #+#             */
+/*   Updated: 2023/03/29 22:06:31 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-#include <iostream>
+# include <iostream>
+# include "Character.hpp"
 
-class Brain {
-	private:
-		std::string _ideas[100];
+class	Ice : public AMateria {
+
 	public:
-		Brain();
-		Brain &operator=(Brain const &s);
-		std::string getIdeas( int i ) const;
-		Brain(const Brain &rhs);
-		~Brain();
+
+		Ice(void);
+		Ice(const Ice &copy);
+		virtual	~Ice(void);
+
+		Ice	&operator=(const Ice &);
+
+		virtual Ice		*clone(void) const;
+		virtual void	use(ICharacter &target);
 };
 
 #endif
