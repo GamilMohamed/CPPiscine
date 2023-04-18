@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 00:26:58 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/18 02:18:10 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/18 07:19:24 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,22 @@
 #define MONTH 1
 #define YEAR 0
 
-void	check_value(std::string string)
+float	check_value(std::string string)
 {
 	float		nb = 0;
-	int i = 0;
-	std::string cyan = CYAN;
-	std::string blue = BLUE;
-	std::string green = GREEN;
-	std::string yellow = YELLOW;
-	
-	if (string[i] == ' ')
-		i++;	
-	if (string[i] == ' ')
-		throw std::invalid_argument(green + BADINPUT + string);
-	if (!isdigit(string[i]) && '-' != string[i])
-		throw std::invalid_argument(cyan + BADINPUT + string);
-	while (isdigit(string[i]))
-		i++;
-	// if (string[i] == '.' && !isdigit(string[i + 1]))
-		// throw std::invalid_argument(yellow + BADINPUT + string);
-	nb = atof(string.c_str());
+
+	std::string::size_type sz;
+	std::string bgreen = BGREEN;
+
+	nb = std::stof(string.c_str(), & sz);
+	if (sz != string.size())
+		throw std::underflow_error(bgreen + BADINPUT + string);
 	if (nb < 0)
 		throw std::underflow_error(NEGATIVE);
 	if (nb > 1000)
 		throw std::overflow_error(LARGENUMBER);
+	// std::cout << BRED << "[" << string << "] => " << nb << RESET << std::endl;
+	return (nb);
 }
 
 void check_date(t_date date, std::string str)
@@ -48,7 +40,6 @@ void check_date(t_date date, std::string str)
 	bool bissextile = false;
 	t_date max = { 9999, 12, 31 };
 	std::string byellow = BYELLOW;
-	std::string reset = RESET;
 
 	if (date.year % 4 == 0)
 		bissextile = true;
@@ -57,7 +48,7 @@ void check_date(t_date date, std::string str)
 	if (date.month == 2)
 		max.day = (bissextile) ? 29 : 28;
 	if (date.year > max.year || date.month > max.month || date.day > max.day)
-		throw std::invalid_argument(byellow + BADINPUT + str + reset);
+		throw std::invalid_argument(byellow + BADINPUT + str);
 }
 
 void print_date(t_date date)
@@ -65,33 +56,22 @@ void print_date(t_date date)
 	std::cout << BYELLOW << date.year << "-" << date.month << "-" << date.day << RESET << std::endl;
 }
 
-void	parse(std::string& string)
+float	parse(std::string& string)
 {
 	int					i(-1), type(0);
 	long long int		nb(0);
 	struct t_date		date = {0, 0, 0};
+	std::string bblue = BBLUE, bcyan = BCYAN;
 
-	if (string.empty())
-		throw std::invalid_argument(BADINPUT + string);
 	while (string[++i])
 	{
 		if (string[i] == ' ' && type == DAY)
 			i++;
-		else if (string[i] == '-' && i != 4 && type == YEAR)
-			throw std::invalid_argument(BADINPUT + string);
 		if (string[i] == '-')
 		{
-			switch (type)
-			{
-				case YEAR:
-					date.year = nb;
-					break;
-				case MONTH:
-					date.month = nb;
-					break;
-			}
-			if (nb == 0 || (i != 4 && i != 7 && i != 10))
-				throw std::invalid_argument(BADINPUT + string);
+			type ? date.month = nb : date.year = nb;
+			if ((nb == 0) || (i != 4 && i != 7 && i != 10))
+				throw std::invalid_argument(bcyan + BADINPUT + string);
 			nb = 0;
 			i++;
 			type++;
@@ -103,51 +83,15 @@ void	parse(std::string& string)
 			return (check_value(&string[++i]));
 		}
 		else if (isdigit(string[i]))
-		{
 			nb = nb * 10 + (string[i] - '0');
-			if ((nb > 12 && type == MONTH ) || (nb > 31 && type == DAY))
-				throw std::invalid_argument(BADINPUT + string);
-		}
 	}
-	throw std::invalid_argument(BADINPUT + string);
+	throw std::invalid_argument(bblue + BADINPUT + string);
 }
-
-// void	parse(std::string& string)
-// {
-// 	int					i(-1), type(0);
-// 	long long int		nb(0);
-
-// 	if (string.empty())
-// 		throw std::invalid_argument(BADINPUT + string);
-// 	while (string[++i])
-// 	{
-// 		if (string[i] == ' ' && type == DAY)
-// 			i++;
-// 		else if (string[i] == '-' && i != 4 && type == YEAR)
-// 			throw std::invalid_argument(BADINPUT + string);
-// 		if (string[i] == '-')
-// 		{
-// 			if (nb == 0 || (i != 4 && i != 7 && i != 10))
-// 				throw std::invalid_argument(BADINPUT + string);
-// 			nb = 0;
-// 			i++;
-// 			type++;
-// 		}
-// 		if (string[i] == '|' && type == DAY)
-// 			return (check_value(&string[++i]));
-// 		else if (isdigit(string[i]))
-// 		{
-// 			nb = nb * 10 + (string[i] - '0');
-// 			if ((nb > 12 && type == MONTH ) || (nb > 31 && type == DAY))
-// 				throw std::invalid_argument(BADINPUT + string);
-// 		}
-// 	}
-// 	throw std::invalid_argument(BADINPUT + string);
-// }
 
 void	readfile(std::ifstream& file, BitcoinExchange& btc)
 {
 	std::string		string;
+	size_t pos = 0;
 	
 	(void)btc;
 	getline(file, string);
@@ -156,8 +100,10 @@ void	readfile(std::ifstream& file, BitcoinExchange& btc)
 	while (getline(file, string))
 	{
 		try {
-			parse(string);
-			std::cout << string << std::endl;
+			float nb = parse(string);
+			while ((pos = string.find(" |")) != std::string::npos)
+    			string.erase(pos);
+			std::cout << string << " => " << nb << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cout << RED << e.what() << RESET << std::endl;
@@ -191,6 +137,6 @@ int	main(int ac, char **av)
 	if (!ifs)
 		return (std::cout << RED << WRONGFILE << RESET << std::endl, 1);
 	readfile(ifs, btc);
-	btc.print();
-	std::cout << btc.getMap()["2020-10-05"] << std::endl;
+	// btc.print();
+	// std::cout << btc.getMap()["2020-10-05"] << std::endl;
 }   
