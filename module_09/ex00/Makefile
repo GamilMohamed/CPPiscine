@@ -6,7 +6,7 @@
 #    By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 20:50:12 by mgamil            #+#    #+#              #
-#    Updated: 2023/04/17 00:08:43 by mgamil           ###   ########.fr        #
+#    Updated: 2023/04/17 23:48:16 by mgamil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SHELL					:=	$(shell which zsh)
 ### A S C I I   A R T ##########################################################
 
 ART_NAME_1				=	█▀▀ █▀█ █▀█ █▀█ █▀█ ▄▄ █▀▀ ▀▄▀ █▀█ ▀█\n
-ART_NAME_2				=	█▄▄ █▀▀ █▀▀ █▄█ █▀█ ░░ ██▄ █░█ █▄█  █\n
+ART_NAME_2				=	█▄▄ █▀▀ █▀▀ █▄█ ▀▀█ ░░ ██▄ █░█ █▄█  █\n
 
 ART_CLN1				=   █▀▀ █░░ █▀▀ ▄▀█ █▄░█\n
 ART_CLN2				=   █▄▄ █▄▄ ██▄ █▀█ █░▀█\n
@@ -64,7 +64,7 @@ RESET					=	\e[0m
 NAME					:=	btc
 
 override FILES			:=	$(addsuffix .cpp,			\
-							 main)
+							 main BitcoinExchange)
 
 SRCDIR					:=	./srcs
 INCDIR					:=	./incs

@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 00:15:14 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/17 04:34:28 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/18 01:14:48 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,12 @@
 # define NEGATIVE		"Error: not a positive number."
 # define WRONGFILE		"Error: could not open file."
 # define LARGENUMBER	"Error: too large a number."
+
+typedef struct t_date
+{
+	int		year;
+	int		month;
+	int		day;
+}				t_date;
 
 #endif
