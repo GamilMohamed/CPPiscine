@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:25:59 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/18 04:35:01 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/18 16:39:54 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,22 @@ void BitcoinExchange::print( void )
 		std::cout << WHITE << it->second;
 		std::cout << RESET << std::endl;
 	}
+}
+
+float BitcoinExchange::getValue( std::string str )
+{
+	std::map<std::string, float>::iterator it;
+	float tmp = 0;
+	
+	for (it = _map.begin(); it != _map.end(); it++)
+	{
+		// std::cout << "comparing [" << str << "] and [" << it->first << "]\n";
+		if (str > it->first)
+			tmp = it->second;
+		if (str == it->first)
+			return it->second;
+	}
+	return tmp;
 }
 
 void BitcoinExchange::parse( std::string str )
