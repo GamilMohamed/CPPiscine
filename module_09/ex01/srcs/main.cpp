@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:14:22 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/19 10:04:42 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/20 05:06:26 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int isAcceptable( std::string str )
 
 int	main(int ac, char **av)
 {
+	RPN calc;
 	if (ac != 2 || !isAcceptable(av[1]))
 		return (std::cout << "Error" << std::endl, 0);
-	RPN calc;
 	std::cout << prin(av[1], calc) << std::endl;
 }
