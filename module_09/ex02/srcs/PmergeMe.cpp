@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 07:55:33 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/22 12:13:06 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/22 13:24:35 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& rhs)
 {
+	if (SHOW) std::cout << "PmergeMe assignement constructor called" << std::endl;
 	_vec = rhs._vec;
 	_list = rhs._list;
 	return *this;

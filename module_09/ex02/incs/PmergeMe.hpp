@@ -6,7 +6,7 @@
 /*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 07:47:44 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/22 12:42:16 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/22 13:25:14 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <set>
 # include <iomanip>
 
+# define SHOW 0
 
 class PmergeMe
 {
@@ -33,9 +34,9 @@ class PmergeMe
 	typedef std::vector<int>::const_iterator const_it_vec;
 	typedef std::list<int>::iterator it_list;
 	typedef std::list<int>::const_iterator const_it_list;
-	PmergeMe( void ){};
-	~PmergeMe( void ){};
-	PmergeMe( const PmergeMe& rhs ):_vec(rhs._vec),_list(rhs._list){}
+	PmergeMe( void ) { if (SHOW) std::cout << "PmergeMe default constructor called" << std::endl; };
+	~PmergeMe( void ) { if (SHOW) std::cout << "PmergeMe destructor called" << std::endl; };
+	PmergeMe( const PmergeMe& rhs ):_vec(rhs._vec),_list(rhs._list){ if (SHOW) std::cout << "PmergeMe copy constructor called" << std::endl; }
 	PmergeMe &operator=( const PmergeMe &rhs );
 
 	std::vector<int>& getVector(void) { return _vec; };
