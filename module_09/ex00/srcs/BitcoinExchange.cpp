@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
+/*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:25:59 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/18 16:39:54 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/22 20:22:02 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include "Colors.hpp"
 
-BitcoinExchange::BitcoinExchange( void ) { std::cout << "BitcoinExchange constructor called" << std::endl; }
+BitcoinExchange::BitcoinExchange( void ) { if (SHOW) std::cout << "BitcoinExchange constructor called" << std::endl; }
 
-BitcoinExchange::~BitcoinExchange( void ) { std::cout << "BitcoinExchange destructor called" << std::endl; }
+BitcoinExchange::~BitcoinExchange( void ) { if (SHOW) std::cout << "BitcoinExchange destructor called" << std::endl; }
 
 BitcoinExchange::BitcoinExchange( BitcoinExchange const & src )
 {
-	std::cout << "BitcoinExchange copy constructor called" << std::endl;
+	if (SHOW) std::cout << "BitcoinExchange copy constructor called" << std::endl;
 	*this = src;
 }
 
 BitcoinExchange & BitcoinExchange::operator=( BitcoinExchange const & rhs )
 {
+	if (SHOW) std::cout << "BitcoinExchange assignement constructor called" << std::endl;
 	if (this != &rhs)
-	{
-		
-	}
+		_map = rhs._map;
 	return *this;
 }
 

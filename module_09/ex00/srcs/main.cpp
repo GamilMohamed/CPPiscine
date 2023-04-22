@@ -3,34 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
+/*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 00:26:58 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/18 16:55:01 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/22 20:50:58 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Error.h"
 #include "BitcoinExchange.hpp"
 
+#include <string>
+#include <sstream>
 #define DAY 2
 #define MONTH 1
 #define YEAR 0
+
+unsigned long lenOfFloat(float z)
+{
+	unsigned long i = 0;
+	float nb = z;
+	// std::cout << BGREEN << nb << RESET << std::endl;
+	while (nb >= 1)
+	{
+		std::cout << BBLUE << nb << RESET << std::endl;
+		nb /= 10;
+		i++;
+	}
+	return (i);
+}
+
+int	isNumeric( std::string nbr )
+{
+	return (nbr.find_first_not_of("0123456789. ") == std::string::npos);
+}
 
 float	check_value(std::string string)
 {
 	float		nb = 0;
 
-	std::string::size_type sz;
-
-	nb = std::stof(string.c_str(), & sz);
-	if (sz != string.size())
-		throw std::underflow_error(BADINPUT + string);
+    std::stringstream ss(string);
+    ss >> nb;
+    size_t num_length = string.length() - 1;
+	size_t sz = 0;
+	if (string[sz] == ' ')
+		sz++;
+	while (string[sz] != ' ' && string[sz] != '\0')
+		sz++;
+	
+	if (sz - 1 != num_length)
+		throw std::underflow_error(LARGENUMBER + string);
 	if (nb < 0)
 		throw std::underflow_error(NEGATIVE);
 	if (nb > 1000)
 		throw std::overflow_error(LARGENUMBER);
-	// std::cout << BRED << "[" << string << "] => " << nb << RESET << std::endl;
 	return (nb);
 }
 
@@ -55,7 +81,7 @@ float	parse(std::string& string)
 	long long int		nb(0);
 	struct t_date		date = {0, 0, 0};
 
-	while (string[++i])
+	while (string[++i])	
 	{
 		if (string[i] == ' ' && type == DAY)
 			i++;

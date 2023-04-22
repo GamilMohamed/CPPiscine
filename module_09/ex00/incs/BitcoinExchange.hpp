@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgamil <mgamil@42.student.fr>              +#+  +:+       +#+        */
+/*   By: mgamil <mgamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 23:23:40 by mgamil            #+#    #+#             */
-/*   Updated: 2023/04/18 16:33:44 by mgamil           ###   ########.fr       */
+/*   Updated: 2023/04/22 18:46:19 by mgamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
+# include <string>
+
 #include "Error.h"
+# define SHOW 0
 
 class BitcoinExchange: public std::map<std::string, float>
 {
